@@ -33,7 +33,8 @@
 #ifdef WITH_SHA256
 /** Aaron D. Gifford's implementation of SHA256
  *  see http://www.aarongifford.com/ */
-#include "sha2/sha2.h"
+#  include "sha2/sha2.h"
+#endif /* WITH_SHA256 */
 
 typedef SHA256_CTX dtls_hash_ctx;
 typedef dtls_hash_ctx *dtls_hash_t;
@@ -54,7 +55,6 @@ dtls_hash_finalize(unsigned char *buf, dtls_hash_t ctx) {
   SHA256_Final(buf, (SHA256_CTX *)ctx);
   return SHA256_DIGEST_LENGTH;
 }
-#endif /* WITH_SHA256 */
 
 /**
  * \defgroup HMAC Keyed-Hash Message Authentication Code (HMAC)
